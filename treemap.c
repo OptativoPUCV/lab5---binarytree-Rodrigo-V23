@@ -73,7 +73,7 @@ void eraseTreeMap(TreeMap * tree, void* key)
 }
 Pair * searchTreeMap(TreeMap * tree, void* key)
 {
-  treeNode* currenNode = tree -> root;
+  treeNode* currentNode = tree -> root;
   while(currendNode != NULL)
     {
       int talla = tree -> lower_than(key, currentNode -> pair -> key);
@@ -96,8 +96,6 @@ Pair * searchTreeMap(TreeMap * tree, void* key)
     }
   return NULL;
 }
-
-
 Pair * upperBound(TreeMap * tree, void* key) {
     return NULL;
 }

@@ -127,3 +127,41 @@ treemap.c:76:13: error: unused variable ‘currenNode’ [-Werror=unused-variabl
 cc1: all warnings being treated as errors
 Compilation failed
 8db4f10
+Thu 14 Sep 2023 05:59:24 PM UTC: 
+ treemap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+treemap.c: In function ‘searchTreeMap’:
+treemap.c:76:3: error: unknown type name ‘treeNode’; did you mean ‘TreeNode’?
+   76 |   treeNode* currentNode = tree -> root;
+      |   ^~~~~~~~
+      |   TreeNode
+treemap.c:76:27: error: initialization of ‘int *’ from incompatible pointer type ‘TreeNode *’ [-Werror=incompatible-pointer-types]
+   76 |   treeNode* currentNode = tree -> root;
+      |                           ^~~~
+treemap.c:77:9: error: ‘currendNode’ undeclared (first use in this function); did you mean ‘currentNode’?
+   77 |   while(currendNode != NULL)
+      |         ^~~~~~~~~~~
+      |         currentNode
+treemap.c:77:9: note: each undeclared identifier is reported only once for each function it appears in
+treemap.c:79:55: error: request for member ‘pair’ in something not a structure or union
+   79 |       int talla = tree -> lower_than(key, currentNode -> pair -> key);
+      |                                                       ^~
+treemap.c:82:25: error: assignment to ‘TreeNode *’ from incompatible pointer type ‘int *’ [-Werror=incompatible-pointer-types]
+   82 |         tree -> current = currentNode
+      |                         ^
+treemap.c:82:38: error: expected ‘;’ before ‘return’
+   82 |         tree -> current = currentNode
+      |                                      ^
+      |                                      ;
+   83 |           return currentNode -> pair;
+      |           ~~~~~~                      
+treemap.c:89:37: error: request for member ‘left’ in something not a structure or union
+   89 |           currentNode = currentNode -> left;
+      |                                     ^~
+treemap.c:93:37: error: request for member ‘right’ in something not a structure or union
+   93 |           currentNode = currentNode -> right;
+      |                                     ^~
+cc1: all warnings being treated as errors
+Compilation failed
+4d7216a
