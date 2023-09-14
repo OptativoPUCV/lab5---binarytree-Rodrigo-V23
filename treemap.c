@@ -82,6 +82,7 @@ void insertTreeMap(TreeMap * tree, void* key, void * value)
             free(newNode -> pair -> value);
             free(newNode -> pair);
             free(newNode);
+            return;
           }
         }
       }
