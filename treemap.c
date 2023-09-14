@@ -5,12 +5,12 @@
 
 typedef struct TreeNode TreeNode;
 
-
-struct TreeNode {
-    Pair* pair;
-    TreeNode * left;
-    TreeNode * right;
-    TreeNode * parent;
+struct TreeNode
+{
+  Pair* pair;
+  TreeNode * left;
+  TreeNode * right;
+  TreeNode * parent;
 };
 
 struct TreeMap {
@@ -36,10 +36,20 @@ TreeNode * createTreeNode(void* key, void * value) {
     return new;
 }
 
-TreeMap * createTreeMap(int (*lower_than) (void* key1, void* key2)) {
-
-    //new->lower_than = lower_than;
+TreeMap * createTreeMap(int (*lower_than) (void* key1, void* key2))
+{
+  TreeMap* mapa = (TreeMap*)malloc(sizeof(TreeMap));
+  if(mapa == NULL)
+  {
     return NULL;
+  }
+  mapa -> current = NULL;
+  mapa -> root = NULL;
+  mapa -> lower_than = lower_than;
+
+  return mapa;
+  //new->lower_than = lower_than;
+  return NULL;
 }
 
 
