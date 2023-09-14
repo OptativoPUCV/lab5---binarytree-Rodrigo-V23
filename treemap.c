@@ -53,6 +53,9 @@ TreeMap * createTreeMap(int (*lower_than) (void* key1, void* key2))
 }
 void insertTreeMap(TreeMap * tree, void* key, void * value)
 {
+  if (searchTreeMap(tree, key) != NULL) {
+        return; // Clave duplicada, no se permite en el TreeMap.
+    }
   TreeNode * newNode = createTreeNode(key, value);
   if(tree -> root == NULL)
   {
@@ -99,7 +102,6 @@ TreeNode * minimum(TreeNode * x)
   }
   return x;
 }
-
 void removeNode(TreeMap * tree, TreeNode* node)
 {
   
