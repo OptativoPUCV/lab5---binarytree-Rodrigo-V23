@@ -57,11 +57,20 @@ void insertTreeMap(TreeMap * tree, void* key, void * value)
 }
 TreeNode * minimum(TreeNode * x)
 {
-  return NULL;
+  if(x == NULL)
+  {
+    return NULL;
+  }
+  while(x -> left != NULL) 
+  {
+    x = x -> left;
+  }
+  return x;
 }
+
 void removeNode(TreeMap * tree, TreeNode* node)
 {
-
+  
 }
 void eraseTreeMap(TreeMap * tree, void* key)
 {
@@ -71,25 +80,31 @@ void eraseTreeMap(TreeMap * tree, void* key)
   TreeNode* node = tree->current;
   removeNode(tree, node);
 }
-Pair* searchTreeMap(TreeMap* tree, void* key) {
-    TreeNode* currentNode = tree->root;
-
-    while (currentNode != NULL) {
-        int cmp = tree->lower_than(key, currentNode->pair->key);
-
-        if (cmp == 0) {
-            tree->current = currentNode; // Actualiza el puntero current.
-            return currentNode->pair;
-        } else if (cmp < 0) {
-            currentNode = currentNode->left;
-        } else {
-            currentNode = currentNode->right;
+Pair * searchTreeMap(TreeMap * tree, void* key)
+{
+  TreeNode* currentNode = tree -> root;
+  while(currentNode != NULL)
+    {
+      int talla = tree -> lower_than(key, currentNode -> pair -> key);
+      if(talla == 0)
+      {
+        tree -> current = currentNode;
+          return currentNode -> pair;
+      }
+      else
+      {
+        if(talla < 0)
+        {
+          currentNode = currentNode -> left;  
         }
+        else
+        {
+          currentNode = currentNode -> right;
+        }
+      }
     }
-
-    return NULL; // La clave no se encontró en el árbol.
+  return NULL;
 }
-
 Pair * upperBound(TreeMap * tree, void* key) {
     return NULL;
 }
