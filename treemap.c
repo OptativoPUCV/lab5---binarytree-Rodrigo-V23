@@ -51,36 +51,35 @@ TreeMap * createTreeMap(int (*lower_than) (void* key1, void* key2))
   //new->lower_than = lower_than;
   return NULL;
 }
-
-
-void insertTreeMap(TreeMap * tree, void* key, void * value) {
+void insertTreeMap(TreeMap * tree, void* key, void * value)
+{
+  
+}
+TreeNode * minimum(TreeNode * x)
+{
+  return NULL;
+}
+void removeNode(TreeMap * tree, TreeNode* node)
+{
 
 }
+void eraseTreeMap(TreeMap * tree, void* key)
+{
+  if (tree == NULL || tree->root == NULL) return;
 
-TreeNode * minimum(TreeNode * x){
-
-    return NULL;
+  if (searchTreeMap(tree, key) == NULL) return;
+  TreeNode* node = tree->current;
+  removeNode(tree, node);
 }
-
-
-void removeNode(TreeMap * tree, TreeNode* node) {
-
-}
-
-void eraseTreeMap(TreeMap * tree, void* key){
-    if (tree == NULL || tree->root == NULL) return;
-
-    if (searchTreeMap(tree, key) == NULL) return;
-    TreeNode* node = tree->current;
-    removeNode(tree, node);
-
-}
-
-
-
-
-Pair * searchTreeMap(TreeMap * tree, void* key) {
-    return NULL;
+Pair * searchTreeMap(TreeMap * tree, void* key)
+{
+  treeNode* currenNode = tree -> root;
+  while(currendNode != NULL)
+    {
+      
+    }
+  
+  return NULL;
 }
 
 
