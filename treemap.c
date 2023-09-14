@@ -72,7 +72,17 @@ void insertTreeMap(TreeMap * tree, void* key, void * value)
         }
         else
         {
-          currentNode = currentNode -> right;
+          if
+          {
+            currentNode = currentNode -> right;
+          }
+          else
+          {
+            free(newNode -> pair -> key);
+            free(newNode -> pair -> value);
+            free(newNode -> pair);
+            free(newNode);
+          }
         }
       }
     newNode -> parent = parent;
