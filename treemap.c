@@ -124,7 +124,7 @@ Pair * searchTreeMap(TreeMap * tree, void* key)
   TreeNode* currentNode = tree -> root;
   while(currentNode != NULL)
     {
-      int valor = tree -> lower_than(currentNode -> pair -> key, key);
+      int valor = tree -> lower_than(key, currentNode -> pair -> key);
       if(valor == 0)
       {
         tree -> current = currentNode;
