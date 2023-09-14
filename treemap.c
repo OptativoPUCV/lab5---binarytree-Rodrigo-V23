@@ -142,7 +142,7 @@ Pair * searchTreeMap(TreeMap * tree, void* key)
         }
       }
     }
-  return currentNode;
+  return NULL;
 }
 Pair * upperBound(TreeMap * tree, void* key) {
     return NULL;
