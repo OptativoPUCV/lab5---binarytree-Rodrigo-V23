@@ -78,7 +78,7 @@ void insertTreeMap(TreeMap * tree, void* key, void * value)
           }
           else
           {
-            free(newNode -> pair -> key);
+            free(newNode -> pair -> value);
             return;
           }
         }
