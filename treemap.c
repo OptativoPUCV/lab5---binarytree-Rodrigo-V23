@@ -76,15 +76,24 @@ Pair * searchTreeMap(TreeMap * tree, void* key)
   treeNode* currenNode = tree -> root;
   while(currendNode != NULL)
     {
-      int valor = tree -> lower_than(key, currentNode -> pair -> key);
-      if(valor == 0)
+      int talla = tree -> lower_than(key, currentNode -> pair -> key);
+      if(talla == 0)
       {
         tree -> current = currentNode
           return currentNode -> pair;
       }
-      
+      else
+      {
+        if(talla < 0)
+        {
+          currentNode = currentNode -> left;  
+        }
+        else
+        {
+          currentNode = currentNode -> right;
+        }
+      }
     }
-  
   return NULL;
 }
 
