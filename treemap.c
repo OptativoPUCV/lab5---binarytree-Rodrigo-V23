@@ -122,13 +122,13 @@ void removeNode(TreeMap * tree, TreeNode* node)
         node -> parent -> right = NULL;
       }
     }
-    else
-    {
-      tree -> root = NULL
-    }
-    free(node);
-    return 
   }
+  else
+  {
+    tree -> root = NULL
+  }
+  free(node);
+  return;
 }
 void eraseTreeMap(TreeMap * tree, void* key)
 {
