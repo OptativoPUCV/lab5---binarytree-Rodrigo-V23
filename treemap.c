@@ -173,6 +173,16 @@ Pair * nextTreeMap(TreeMap * tree)
       tree -> current = minimum(siguiente);
       return tree -> current -> pair;
     }
+    else
+    {
+      TreeNode * current = tree -> current;
+      TreeNode * parent = current -> parent;
+      while(parent != NULL && parent -> right == current)
+      {
+        current = parent;
+        parent = parent -> parent;
+      }
+    }
   }
   return NULL;
 }
