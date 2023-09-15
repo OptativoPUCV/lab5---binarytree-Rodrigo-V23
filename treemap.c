@@ -150,26 +150,7 @@ Pair * searchTreeMap(TreeMap * tree, void* key)
 
 Pair * upperBound(TreeMap * tree, void* key)
 {
-  TreeNode * currentNode = tree -> root;
-  TreeNode * upperBoundNode = NULL;
-
-  while(currentNode != NULL)
-  {
-    int valor = tree -> lower_than(key, currentNode -> pair -> key);
-    if(valor == 0)
-    {
-      tree -> current = currentNode;
-      return currentNode -> pair;
-    }
-    else
-    {
-      if(valor < 0)
-      {
-        return currentNode -> upperBoundNode;
-      }
-    }
-  }
-  return NULL;
+  
 }
 Pair * firstTreeMap(TreeMap * tree)
 {
