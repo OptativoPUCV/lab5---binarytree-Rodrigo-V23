@@ -718,3 +718,22 @@ treemap.c:198:1: error: control reaches end of non-void function [-Werror=return
 cc1: all warnings being treated as errors
 Compilation failed
 7ee311f
+Fri 15 Sep 2023 11:38:24 PM UTC: 
+ treemap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+treemap.c: In function ‘removeNode’:
+treemap.c:129:3: error: expected ‘;’ before ‘}’ token
+  129 |   }
+      |   ^
+treemap.c: In function ‘upperBound’:
+treemap.c:179:18: error: ‘TreeMap’ has no member named ‘lower_that’; did you mean ‘lower_than’?
+  179 |       if(tree -> lower_that(currentNode -> pair -> key, key) == 1)
+      |                  ^~~~~~~~~~
+      |                  lower_than
+treemap.c:198:1: error: control reaches end of non-void function [-Werror=return-type]
+  198 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+25ec31f
