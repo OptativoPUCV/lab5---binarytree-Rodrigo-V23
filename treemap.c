@@ -109,7 +109,26 @@ TreeNode * minimum(TreeNode * x)
 }
 void removeNode(TreeMap * tree, TreeNode* node)
 {
-  
+  if(node -> left == NULL && node -> right == NULL)
+  {
+    if(node -> parent != NULL)
+    {
+      if(node -> parent -> letf == node)
+      {
+        node -> parent -> left = NULL;
+      }
+      else
+      {
+        node -> parent -> right = NULL;
+      }
+    }
+    else
+    {
+      tree -> root = NULL
+    }
+    free(node);
+    return 
+  }
 }
 void eraseTreeMap(TreeMap * tree, void* key)
 {
@@ -143,8 +162,6 @@ Pair * searchTreeMap(TreeMap * tree, void* key)
   }
   return NULL;
 }
-   
-
 Pair * upperBound(TreeMap * tree, void* key)
 {
   TreeNode * currentNode = tree -> root;
