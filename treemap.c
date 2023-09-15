@@ -144,7 +144,7 @@ Pair * searchTreeMap(TreeMap * tree, void* key)
         }
       }
     }
-  return NULL
+  return NULL;
 }
    
 
@@ -161,7 +161,7 @@ Pair * firstTreeMap(TreeMap * tree)
     return minNode -> pair;
   }
   return NULL;
-} 
+}
 
 Pair * nextTreeMap(TreeMap * tree)
 {
