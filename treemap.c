@@ -113,7 +113,7 @@ void removeNode(TreeMap * tree, TreeNode* node)
   {
     if(node -> parent != NULL)
     {
-      if(node -> parent -> left == node)
+      if(node -> parent -> letf == node)
       {
         node -> parent -> left = NULL;
       }
@@ -125,7 +125,7 @@ void removeNode(TreeMap * tree, TreeNode* node)
   }
   else
   {
-    tree -> root = NULL;
+    tree -> root = NULL
   }
   free(node);
   return;
@@ -176,7 +176,7 @@ Pair * upperBound(TreeMap * tree, void* key)
     }
     else
     {
-      if(tree -> lower_tha(currentNode -> pair -> key, key) == 1)
+      if(tree -> lower_than(currentNode -> pair -> key, key) == 1)
       {
         ub_node = currentNode;
         currentNode = currentNode -> left;
