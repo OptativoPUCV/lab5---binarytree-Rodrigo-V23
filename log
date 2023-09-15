@@ -848,3 +848,19 @@ treemap.c:198:1: error: control reaches end of non-void function [-Werror=return
 cc1: all warnings being treated as errors
 Compilation failed
 ab67d44
+Fri 15 Sep 2023 11:57:19 PM UTC: 
+ treemap.c | 28 ++++++++++++++++++++++++++++
+ 1 file changed, 28 insertions(+)
+In file included from test.c:4:
+treemap.c: In function ‘removeNode’:
+treemap.c:150:20: error: ‘aux’ undeclared (first use in this function)
+  150 |     tree -> root = aux;
+      |                    ^~~
+treemap.c:150:20: note: each undeclared identifier is reported only once for each function it appears in
+treemap.c: In function ‘upperBound’:
+treemap.c:226:1: error: control reaches end of non-void function [-Werror=return-type]
+  226 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+cca6893
