@@ -506,3 +506,17 @@ Fri 15 Sep 2023 09:30:42 PM UTC:
  tests:  17|3
 total_score: 35/70
 6add7a0
+Fri 15 Sep 2023 09:30:56 PM UTC: 
+ treemap.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+In file included from test.c:4:
+treemap.c: In function ‘upperBound’:
+treemap.c:168:28: error: ‘TreeNode’ has no member named ‘upperBoundNode’
+  168 |         return currentNode -> upperBoundNode;
+      |                            ^~
+treemap.c:154:14: error: unused variable ‘upperBoundNode’ [-Werror=unused-variable]
+  154 |   TreeNode * upperBoundNode = NULL;
+      |              ^~~~~~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+c8c1f0a
