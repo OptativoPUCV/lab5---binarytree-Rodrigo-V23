@@ -165,7 +165,7 @@ Pair * upperBound(TreeMap * tree, void* key)
     {
       if(valor < 0)
       {
-        tree -> current = currentNode;
+        return NULL;
       }
     }
   }
