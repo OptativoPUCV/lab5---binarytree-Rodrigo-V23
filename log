@@ -566,3 +566,17 @@ Fri 15 Sep 2023 11:10:24 PM UTC:
  tests:  17|3
 total_score: 35/70
 0d6ddcf
+Fri 15 Sep 2023 11:15:56 PM UTC: 
+ treemap.c | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
+In file included from test.c:4:
+treemap.c: In function ‘upperBound’:
+treemap.c:157:8: error: implicit declaration of function ‘lower_that’ [-Werror=implicit-function-declaration]
+  157 |     if(lower_that(key, currentNode -> pair -> key))
+      |        ^~~~~~~~~~
+treemap.c:182:1: error: control reaches end of non-void function [-Werror=return-type]
+  182 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+883201c
