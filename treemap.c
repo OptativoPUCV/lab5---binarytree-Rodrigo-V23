@@ -130,8 +130,21 @@ Pair * searchTreeMap(TreeMap * tree, void* key)
       if(valor == 0)
       {
         tree -> current = currentNode;
+        return currentNode -> pair;
+      }
+      else
+      {
+        if(valor < 0)
+        {
+          currentNode = currentNode -> left;
+        }
+        else
+        {
+          currentNode = currentNode -> right;
+        }
       }
     }
+  return NULL;
 }
    
 
