@@ -150,7 +150,6 @@ Pair * searchTreeMap(TreeMap * tree, void* key)
 
 Pair * upperBound(TreeMap * tree, void* key)
 {
-  tree -> current = NULL;
   TreeNode * currentNode = tree -> root;
   TreeNode * ub_node = NULL;
   while(currentNode != NULL)
