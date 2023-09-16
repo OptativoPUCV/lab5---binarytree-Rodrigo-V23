@@ -108,54 +108,9 @@ TreeNode * minimum(TreeNode * x)
   return x;
 }
 void removeNode(TreeMap * tree, TreeNode* node) 
-if (tree == NULL || node == NULL) {
-        return;
-    }
-
-    // Caso 1: Nodo sin hijos
-    if (node->left == NULL && node->right == NULL) {
-        if (node->parent != NULL) {
-            if (node->parent->left == node) {
-                node->parent->left = NULL;
-            } else {
-                node->parent->right = NULL;
-            }
-        } else {
-            // Si es el nodo raíz
-            tree->root = NULL;
-        }
-        free(node->pair->key);
-        free(node->pair->value);
-        free(node->pair);
-        free(node);
-    }
-    // Caso 2: Nodo con un hijo
-    else if (node->left != NULL && node->right == NULL) {
-        TreeNode* child = node->left;
-        if (node->parent != NULL) {
-            if (node->parent->left == node) {
-                node->parent->left = child;
-            } else {
-                node->parent->right = child;
-            }
-            child->parent = node->parent;
-        } else {
-            // Si es el nodo raíz
-            tree->root = child;
-            child->parent = NULL;
-        }
-        free(node->pair->key);
-        free(node->pair->value);
-        free(node->pair);
-        free(node);
-    }
-    // Caso 3: Nodo con dos hijos
-    else {
-        TreeNode* minRight = minimum(node->right);
-        node->pair->key = minRight->pair->key;
-        node->pair->value = minRight->pair->value;
-        removeNode(tree, minRight);
-    }
+{
+  
+}
 void eraseTreeMap(TreeMap * tree, void* key)
 {
   if (tree == NULL || tree->root == NULL) return;
@@ -166,27 +121,20 @@ void eraseTreeMap(TreeMap * tree, void* key)
 }
 Pair * searchTreeMap(TreeMap * tree, void* key)
 {
-  TreeNode * currentNode = tree -> root;
-  while(currentNode != NULL)
-  {
-    if(is_equal(tree, currentNode -> pair -> key, key))
-    {
-      tree -> current = currentNode;
-      return currentNode -> pair;
+    TreeNode* currentNode = tree -> root;
+    
+    while (currentNode != NULL) {
+        if (is_equal(tree, currentNode->pair->key, key)) {
+            tree->current = currentNode;
+            return currentNode->pair;
+        } else if (tree->lower_than(key, currentNode->pair->key)) {
+            currentNode = currentNode->left;
+        } else {
+            currentNode = currentNode->right;
+        }
     }
-    else
-    {
-      if(tree -> lower_than(key, currentNode -> pair -> key))
-      {
-        currentNode = currentNode -> left;
-      }
-      else
-      {
-        currentNode = currentNode -> right;
-      }
-    }
-  }
-  return NULL;
+    
+    return NULL;
 }
 Pair * upperBound(TreeMap * tree, void* key)
 {
