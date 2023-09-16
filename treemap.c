@@ -109,7 +109,53 @@ TreeNode * minimum(TreeNode * x)
 }
 void removeNode(TreeMap * tree, TreeNode* node) 
 {
-  
+  if(node->left == NULL && node->right == NULL)
+  {
+    if(node->parent != NULL)
+    {
+      if(node->parent->left == node)
+      {
+        node->parent->left = NULL;
+      }
+      else
+      {
+        node->parent->right = NULL;
+      }
+    }
+    else
+    {
+      tree -> root = NULL;
+    }
+    free(node);
+    return;
+  }
+  if(node->left == NULL || node->right == NULL)
+  {
+    TreeNode* aux = node->left != NULL ? node->left : node->right;
+    if(node->parent != NULL)
+    {
+      if (node->parent->left == node)
+      {
+        node->parent->left = aux;
+      }
+      else
+      {
+        node->parent->right = aux;
+      }
+      aux->parent = node->parent;
+    }
+    else
+    {
+      tree -> root = NULL;
+      aux -> parent = NULL;
+    }
+    free(node);
+    return;
+  }
+  TreeNode* lastNode = minimum(node->right);
+  node->pair->key = lastNode->pair->key;
+  node->pair->value = lastNode->pair->value;
+  removeNode(tree, lastNode);
 }
 void eraseTreeMap(TreeMap * tree, void* key)
 {
@@ -121,20 +167,27 @@ void eraseTreeMap(TreeMap * tree, void* key)
 }
 Pair * searchTreeMap(TreeMap * tree, void* key)
 {
-    TreeNode* current = tree -> root;
-    
-    while (current != NULL) {
-        if (is_equal(tree, current->pair->key, key)) {
-            tree->current = current;
-            return current->pair;
-        } else if (tree->lower_than(key, current->pair->key)) {
-            current = current->left;
-        } else {
-            current = current->right;
-        }
+  TreeNode * currentNode = tree -> root;
+  while(currentNode != NULL)
+  {
+    if(is_equal(tree, currentNode -> pair -> key, key))
+    {
+      tree -> current = currentNode;
+      return currentNode -> pair;
     }
-    
-    return NULL;
+    else
+    {
+      if(tree -> lower_than(key, currentNode -> pair -> key))
+      {
+        currentNode = currentNode -> left;
+      }
+      else
+      {
+        currentNode = currentNode -> right;
+      }
+    }
+  }
+  return NULL;
 }
 Pair * upperBound(TreeMap * tree, void* key)
 {
